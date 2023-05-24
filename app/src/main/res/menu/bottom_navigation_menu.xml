@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/forecast"
+        android:enabled="true"
+        android:icon="@drawable/weather"
+        android:title="@string/Weather"/>
+    <item
+        android:id="@+id/city"
+        android:enabled="true"
+        android:icon="@drawable/settings"
+        android:title="@string/location"/>
+
+    <item
+        android:id="@+id/information"
+        android:enabled="true"
+        android:icon="@drawable/info"
+        android:title="@string/info"/>
+</menu>

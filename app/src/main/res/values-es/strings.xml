@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JustWeather</string>
+    <string name="max">Máximo:</string>
+    <string name="min">Mínimo:</string>
+    <string name="jjewuz_site">sitio del desarrollador</string>
+    <string name="wheater_provider">El tiempo proporcionado por openweathermap.org</string>
+    <string name="ver">Versión:</string>
+    <string name="city_enter">Introduce el nombre de la ciudad</string>
+    <string name="wind_speed">Velocidad del viento:</string>
+    <string name="pressure">Presión:</string>
+    <string name="feels">Se siente como:</string>
+    <string name="updated_last">Actualizado:</string>
+    <string name="app_widget_description">Widget con el tiempo actual.</string>
+    <string name="add_widget">Añadir widget</string>
+    <string name="appwidget_text">EJEMPLO</string>
+    <string name="city">Cargando ciudad…</string>
+    <string name="load">Cargando…</string>
+    <string name="Weather">Clima</string>
+    <string name="location">Ajustes</string>
+    <string name="info">información</string>
+    <string name="rate">Califica la aplicación</string>
+    <string name="dev">Desarrollador: jjewuz</string>
+    <string name="socialtxt">Medios de comunicación social:</string>
+    <string name="boostytxt">Suscríbete a Boosty</string>
+    <string name="desc">Hecho en Rusia con ❤</string>
+    <string name="setupcity">Personaliza la ciudad</string>
+    <string name="otherinfo">Otra información:</string>
+    <string name="soon">Próximamente nuevas configuraciones…</string>
+    <string name="settingsunits">usar celsio</string>
+    <string name="notificationDesc">Muestra el clima actual a veces</string>
+    <string name="currWeather">Clima actual</string>
+    <string name="nowText">Ahora:</string>
+    <string name="update">Actualizar</string>
+    <string name="usenotify">Notificaciones</string>
+    <string name="openSource">fuente</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JustWeather</string>
+    <string name="app_widget_description">Виджет с текущей погодой.</string>
+    <string name="add_widget">Добавить виджет</string>
+    <string name="appwidget_text">ПРИМЕР</string>
+    <string name="updated_last">Обновлено:</string>
+    <string name="feels">Ощущается как:</string>
+    <string name="pressure">Давление:</string>
+    <string name="wind_speed">Скорость ветра:</string>
+    <string name="city_enter">Введите название города</string>
+    <string name="ver">Версия:</string>
+    <string name="wheater_provider">Погода предоставлена openweathermap.org</string>
+    <string name="jjewuz_site">Сайт разработчика</string>
+    <string name="min">Минимальная:</string>
+    <string name="max">Максимальная:</string>
+    <string name="city">Загрузка…</string>
+    <string name="load">Обновление…</string>
+    <string name="Weather">Погода</string>
+    <string name="location">Настройки</string>
+    <string name="info">Информация</string>
+    <string name="rate">Оцените приложение</string>
+    <string name="dev">Разработчик: jjewuz</string>
+    <string name="socialtxt">Социальные сети:</string>
+    <string name="boostytxt">Подпишитесь на Boosty</string>
+    <string name="desc">Сделано в России с ❤</string>
+    <string name="setupcity">Настройте город</string>
+    <string name="otherinfo">Другая информация:</string>
+    <string name="soon">Скоро здесь появятся новые настройки…</string>
+    <string name="settingsunits">Использовать Цельсии</string>
+    <string name="update">Обновить</string>
+    <string name="nowText">Сейчас:</string>
+    <string name="notificationDesc">Показывает текущую погоду переодически</string>
+    <string name="currWeather">Текущая погода</string>
+    <string name="usenotify">Уведомления</string>
+    <string name="openSource">Исходный код</string>
+</resources>

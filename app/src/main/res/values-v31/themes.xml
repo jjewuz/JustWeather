@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.Material3.DynamicColors.Light">
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
+
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+
+        <item name="android:windowLightStatusBar">
+            true
+        </item>
+
+        <item name="colorPrimary">@android:color/system_accent1_600</item>
+        <item name="colorOnPrimary">@android:color/system_accent1_0</item>
+        <item name="colorPrimaryContainer">@android:color/system_accent1_100</item>
+        <item name="colorOnPrimaryContainer">@android:color/system_accent1_900</item>
+        <item name="colorPrimaryInverse">@android:color/system_accent1_200</item>
+        <item name="colorSecondary">@android:color/system_accent2_600</item>
+        <item name="colorOnSecondary">@android:color/system_accent2_0</item>
+        <item name="colorSecondaryContainer">@android:color/system_accent2_100</item>
+        <item name="colorOnSecondaryContainer">@android:color/system_accent2_900</item>
+        <item name="colorTertiary">@android:color/system_accent3_600</item>
+        <item name="colorOnTertiary">@android:color/system_accent3_0</item>
+        <item name="colorTertiaryContainer">@android:color/system_accent3_100</item>
+        <item name="colorOnTertiaryContainer">@android:color/system_accent3_900</item>
+
+        <item name="colorError">#ffb3261e</item>
+        <item name="colorOnError">#ffffff</item>
+        <item name="colorErrorContainer">#fff9dedc</item>
+        <item name="colorOnErrorContainer">#ff410e0b</item>
+        <item name="colorOutline">@android:color/system_neutral2_500</item>
+        <item name="colorBackground">@android:color/system_neutral1_10</item>
+        <item name="colorOnBackground">@android:color/system_neutral1_900</item>
+        <item name="colorSurface">@android:color/system_neutral1_10</item>
+        <item name="colorOnSurface">@android:color/system_neutral1_900</item>
+        <item name="colorSurfaceVariant">@android:color/system_neutral2_100</item>
+        <item name="colorOnSurfaceVariant">@android:color/system_neutral2_700</item>
+        <item name="colorSurfaceInverse">@android:color/system_neutral1_800</item>
+        <item name="colorOnSurfaceInverse">@android:color/system_neutral1_50</item>
+
+        <item name="textColor">@color/white</item>
+
+        <item name="android:windowLayoutInDisplayCutoutMode">
+            shortEdges <!-- default, shortEdges, or never -->
+        </item>
+
+    </style>
+    <!--
+    Having themes.xml for v31 variant because @android:dimen/system_app_widget_background_radius
+     and @android:dimen/system_app_widget_internal_padding requires API level 31
+    -->
+    <style name="AppTheme.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="appWidgetRadius">@android:dimen/system_app_widget_background_radius</item>
+        <item name="appWidgetInnerRadius">@android:dimen/system_app_widget_inner_radius</item>
+    </style>
+
+    <style name="MyWidgetTheme" parent="Theme.Material3.DynamicColors.DayNight" />
+
+
+</resources>

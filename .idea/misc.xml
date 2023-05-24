@@ -1,0 +1,36 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.356" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.356" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3665" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable/buttonc.xml" value="0.3545" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.3665" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3675" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/drawable/weather.xml" value="0.3665" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout-land/activity_main.xml" value="0.33" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout-land/fragment_forecast.xml" value="0.5083333333333333" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout-land/fragment_info.xml" value="0.5083333333333333" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout-land/fragment_settings.xml" value="0.5083333333333333" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/fragment_blank.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/fragment_forecast.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/fragment_info.xml" value="0.35260416666666666" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/fragment_information.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/fragment_settings.xml" value="0.35260416666666666" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/fragment_weather.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/layout/weather_widget.xml" value="0.36666666666666664" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.35" />
+        <entry key="..\:/Coding/Projects/AndroidStudio/JustWeather/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.356" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

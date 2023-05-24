@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">JustWeather</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">JustWeather simple widget.</string>
+    <string name="updated_last">Updated at:</string>
+    <string name="feels">Feels like:</string>
+    <string name="pressure">Pressure:</string>
+    <string name="wind_speed">Wind speed:</string>
+    <string name="city_enter">Enter city name</string>
+    <string name="ver">Version:</string>
+    <string name="wheater_provider">Weather provided by openweathermap.org</string>
+    <string name="jjewuz_site">Developer site</string>
+    <string name="min">Minimum:</string>
+    <string name="max">Maximum:</string>
+    <string name="city">Loading city...</string>
+    <string name="load">Loading...</string>
+    <string name="Weather">Weather</string>
+    <string name="location">Settings</string>
+    <string name="info">Info</string>
+    <string name="rate">Rate app</string>
+    <string name="dev">Developer: jjewuz</string>
+    <string name="socialtxt">Social links:</string>
+    <string name="boostytxt">Support on Boosty</string>
+    <string name="desc">Made in Russia with ❤</string>
+    <string name="setupcity">Setup city</string>
+    <string name="otherinfo">Other info:</string>
+    <string name="soon">New settings coming soon...</string>
+    <string name="settingsunits">Use Celsium</string>
+    <string name="update">Update</string>
+    <string name="nowText">Now:</string>
+    <string name="currWeather">Current weather</string>
+    <string name="notificationDesc">Displays curent weather sometimes</string>
+    <string name="usenotify">Use notifications</string>
+    <string name="openSource">GitHub</string>
+</resources>
