@@ -56,7 +56,7 @@ class Settings : Fragment() {
         })
 
         notifSett.setOnClickListener {
-            val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             val uri = Uri.fromParts("package", requireActivity().packageName, null)
             intent.data = uri

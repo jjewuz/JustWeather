@@ -20,6 +20,9 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
@@ -28,10 +31,32 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
     
     private lateinit var currWeather: String
     private lateinit var nowTxt: String
+    private lateinit var descTxt: String
     private lateinit var feels: String
+
+    private lateinit var updatedLast: String
+    private lateinit var pressureTxt: String
+    private lateinit var cityEnter: String
+    private lateinit var site: String
+    private lateinit var wind_speed: String
+    private lateinit var minTxt: String
+    private lateinit var maxTxt: String
 
     override fun doWork(): Result {
         return try {
+            currWeather = applicationContext.resources.getString(R.string.currWeather)
+            nowTxt = applicationContext.resources.getString(R.string.nowText)
+            descTxt = applicationContext.resources.getString(R.string.notificationDesc)
+            feels = applicationContext.resources.getString(R.string.feels)
+
+            updatedLast = applicationContext.resources.getString(R.string.updated_last)
+            pressureTxt = applicationContext.resources.getString(R.string.pressure)
+            cityEnter = applicationContext.resources.getString(R.string.city_enter)
+            site = applicationContext.resources.getString(R.string.jjewuz_site)
+            wind_speed = applicationContext.resources.getString((R.string.wind_speed))
+            minTxt = applicationContext.resources.getString(R.string.min)
+            maxTxt = applicationContext.resources.getString(R.string.max)
+
             val url = inputData.getString(URL)
             if (url != null) {
                 getWeather(url)
@@ -52,25 +77,45 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
             val responseBody = response.body
             val feel = R.string.feels.toString()
             if (responseBody != null) {
-                val responseString = responseBody.string()
-                val jsonObject = JSONObject(responseString)
-                val main = jsonObject.getJSONObject("main")
-                val temperature = main.getString("temp")
-                val feelslike = main.getString("feels_like")
-
-                val title = "${temperature.toFloat().toInt()}°С"
-                val message = "${feelslike.toFloat().toInt()}°С"
-
                 sharedPreferences =
                     applicationContext.getSharedPreferences("prefs", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
 
+
+
+                val responseString = responseBody.string()
+                val jsonObject = JSONObject(responseString)
+                val main = jsonObject.getJSONObject("main")
+                val wind = jsonObject.getJSONObject("wind")
+                val temperature = main.getString("temp")
+                val feelslike = main.getString("feels_like")
+                val pressure = main.getString("pressure")
+                val windspeed = wind.getString("speed")
+                val min = main.getString("temp_min")
+                val max = main.getString("temp_max")
+                val cityName = jsonObject.getString("name")
+                val weatherArray = jsonObject.getJSONArray("weather")
+                val weather = weatherArray.getJSONObject(0)
+                val description = weather.getString("description")
+                val updatedOn = jsonObject.getString("dt")
+                val updatedAt: String = SimpleDateFormat("h:mm a", Locale.ENGLISH).format(Date(updatedOn.toLong() * 1000))
+
                 withContext(Dispatchers.Main) {
                     editor.putString("MainTemp", "${temperature.toFloat().toInt()}°С")
-                    editor.putString("FeelsLikeTxt", "$feel ${feelslike.toFloat().toInt()}°С")
+                    editor.putString("FeelsLikeTxt",  "$feels ${feelslike.toFloat().toInt()}°С")
+                    editor.putString("MinMaxTxt", "$minTxt ${min.toFloat().toInt()}°С\n$maxTxt ${max.toFloat().toInt()}°С")
+                    editor.putString("CityTxt", cityName)
+                    editor.putString("PressureTxt", "${pressureTxt} $pressure hPA")
+                    editor.putString("WindTxt", "${wind_speed} $windspeed m/s")
+                    editor.putString("UpdatedTxt", "${updatedLast} $updatedAt")
+                    editor.putString("DesciptionTxt", description)
                     editor.putInt("temperature", temperature.toFloat().toInt())
+                    editor.putBoolean("isLoaded", true)
                     editor.apply()
                 }
+
+                val title = "$nowTxt ${temperature.toFloat().toInt()}°С"
+                val message = "$feels ${feelslike.toFloat().toInt()}°С"
 
                 pushWidget()
 
@@ -78,10 +123,10 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
                         applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                     val channel = NotificationChannel(
                         "0",
-                        R.string.currWeather.toString(),
+                        currWeather,
                         NotificationManager.IMPORTANCE_DEFAULT
                     )
-                    channel.description = R.string.notificationDesc.toString()
+                    channel.description = descTxt
                     mNotificationManager.createNotificationChannel(channel)
                     val mBuilder = NotificationCompat.Builder(applicationContext, "0")
                         .setSmallIcon(R.drawable.cloud)

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="25dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Settings">
 
     <androidx.core.widget.NestedScrollView
@@ -12,7 +13,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingRight="5dp"
         android:paddingLeft="5dp"
         android:paddingBottom="30dp"
@@ -46,6 +47,44 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:layout_gravity="center_vertical"
+            style="?attr/materialCardViewFilledStyle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:text="@string/notu"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right"
+                    app:tint="?colorPrimary"
+                    android:contentDescription="right arrow" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

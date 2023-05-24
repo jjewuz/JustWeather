@@ -34,4 +34,5 @@
     <string name="currWeather">Текущая погода</string>
     <string name="usenotify">Уведомления</string>
     <string name="openSource">Исходный код</string>
+    <string name="notu">Уведомления</string>
 </resources>

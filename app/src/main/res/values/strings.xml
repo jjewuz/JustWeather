@@ -33,4 +33,5 @@
     <string name="notificationDesc">Displays curent weather sometimes</string>
     <string name="usenotify">Use notifications</string>
     <string name="openSource">GitHub</string>
+    <string name="notu">Notifications</string>
 </resources>

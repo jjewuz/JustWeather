@@ -4,28 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -203,24 +189,21 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/update_button"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    app:icon="@drawable/reload"
-                    android:text="@string/update" />
-
-
-
-
             </LinearLayout>
 
-            </androidx.core.widget.NestedScrollView>
-        </LinearLayout>
 
-    </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:id="@+id/update_button"
+            android:layout_margin="25dp"
+            android:src="@drawable/reload"
+            android:contentDescription="update" />
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 

@@ -6,6 +6,9 @@
     android:paddingTop="25dp"
     tools:context=".Forecast">
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -205,23 +208,25 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/update_button"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="@string/update" />
-
-
-
-
             </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
         </LinearLayout>
 
     </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:id="@+id/update_button"
+            android:layout_margin="25dp"
+            android:src="@drawable/reload"
+            android:contentDescription="update" />
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </FrameLayout>

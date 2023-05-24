@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.*
 import java.util.concurrent.TimeUnit
 
@@ -26,7 +27,7 @@ class Forecast : Fragment() {
 
     private lateinit var updateToast: String
 
-    private lateinit var updateBtn: Button
+    private lateinit var updateBtn: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
