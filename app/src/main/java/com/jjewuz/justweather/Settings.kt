@@ -64,7 +64,7 @@ class Settings : Fragment() {
         }
 
         cityId = loadSelectedCity()
-        (activity as MainActivity?)!!.getWeather(false)
+        (activity as MainActivity?)!!.getWeather()
 
         cityListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val selectedCity = parent.getItemAtPosition(position) as City
@@ -72,7 +72,7 @@ class Settings : Fragment() {
             saveSelectedCity(cityId)
             cityEditText.setText(selectedCity.name)
             cityListView.visibility = View.GONE
-            (activity as MainActivity?)!!.getWeather(false)
+            (activity as MainActivity?)!!.getWeather()
             cityEditText.text.clear()
             searchCities("хуйня")
         }

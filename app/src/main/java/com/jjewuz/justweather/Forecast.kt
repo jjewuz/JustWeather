@@ -59,7 +59,7 @@ class Forecast : Fragment() {
         pressureTextView = v.findViewById(R.id.pressure_textview)
 
         updateBtn.setOnClickListener(){
-            (activity as MainActivity?)!!.getWeather(false)
+            (activity as MainActivity?)!!.getWeather()
             Toast.makeText(this.requireActivity(), updateToast, Toast.LENGTH_SHORT).show()
             reloadWeather()
         }
