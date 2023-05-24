@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         maxTxt = resources.getString(R.string.max)
         nowTxt = resources.getString((R.string.nowText))
 
-        getWeather(false)
+        getWeather()
 
         val weatherUpdate =
             PeriodicWorkRequestBuilder<WeatherUpdater>(
@@ -129,15 +129,7 @@ class MainActivity : AppCompatActivity() {
 
             true
         }
-
     }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-
 
     fun saveSelectedCity(cityId: Int) {
         val editor = sharedPreferences.edit()
@@ -145,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
     }
 
-    fun loadSelectedCity(): Int {
+    private fun loadSelectedCity(): Int {
         val cityId = sharedPreferences.getInt("selectedCityId", 0)
         if (cityId == 0) {
             return 5391959 // San Francisco
@@ -160,9 +152,7 @@ class MainActivity : AppCompatActivity() {
         return url
     }
 
-
-
-    fun getWeather(isAuto: Boolean) {
+    fun getWeather() {
         GlobalScope.launch(Dispatchers.IO) {
             sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
@@ -203,16 +193,11 @@ class MainActivity : AppCompatActivity() {
                     editor.apply()
                 }
                 pushWidget(this@MainActivity, temperature )
-                if (isAuto ){
-                    showNotification("$nowTxt ${temperature.toFloat().toInt()}°С", "$feel ${feelslike.toFloat().toInt()}°С" )
-                }
-
             }
         }
 
     }
-
-    fun pushWidget(context: Context, temp: String ){
+    private fun pushWidget(context: Context, temp: String ){
         val intent = Intent(this, WeatherWidget::class.java)
         intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
         val ids: IntArray = AppWidgetManager.getInstance(application)
@@ -221,38 +206,12 @@ class MainActivity : AppCompatActivity() {
         sendBroadcast(intent)
     }
 
-
-
-    fun openSite(view: View) {
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://jjewuz.github.io/"))
-        startActivity(browserIntent)
-    }
-
     private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit ()
-    }
-
-    fun showNotification(title: String, message: String) {
-        val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val channel = NotificationChannel("0",
-            R.string.currWeather.toString(),
-            NotificationManager.IMPORTANCE_DEFAULT)
-        channel.description = R.string.notificationDesc.toString()
-        mNotificationManager.createNotificationChannel(channel)
-        val mBuilder = NotificationCompat.Builder(applicationContext, "0")
-            .setSmallIcon(R.drawable.cloud)
-            .setContentTitle(title)
-            .setContentText(message)
-            .setAutoCancel(true)
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        val pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-        mBuilder.setContentIntent(pi)
-        mNotificationManager.notify(0, mBuilder.build())
-
     }
 
 }
