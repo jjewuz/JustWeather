@@ -1,7 +1,7 @@
 # ![App logo](app/src/main/res/mipmap-mdpi/ic_launcher.png) JustWeather
 
 
-JustNotes is simple android app for taking notes, like there have been tens of thousands before. App uses Room database.
+JustWeather is simple android app for weather forecast. The application has a material you design with all new android features.
 
 ## Features
  - Monet theming support
@@ -10,8 +10,10 @@ JustNotes is simple android app for taking notes, like there have been tens of t
  - Supports predictive back gesture, preferred settings and soon more features!
 
 ## Screenshots
-<img src="https://user-images.githubusercontent.com/53698992/216838972-a31f2943-11da-4893-9def-eb193e876188.png" width="180" height="320" />
-<img src="https://user-images.githubusercontent.com/53698992/216838974-d93a354f-86ab-44d2-939b-c67c30b2bdd0.png" width="180" height="320" />
+<img src="https://github.com/jjewuz/JustWeather/assets/53698992/68aa3f9c-e879-4c66-bf61-7a403d12c7b2" width="180" height="320" />
+<img src="https://github.com/jjewuz/JustWeather/assets/53698992/c11b90a9-0478-4596-824d-2e02dc8b8593" width="180" height="320" />
+<img src="https://github.com/jjewuz/JustWeather/assets/53698992/d5c472d6-7d84-4830-887d-95f77866d7e7" width="180" height="320" />
+<img src="https://github.com/jjewuz/JustWeather/assets/53698992/e973a2fe-2d4d-47d0-ae37-27de60ce1199" width="180" height="320" />
 
 ## Download
  - [Google Play Store](https://play.google.com/store/apps/details?id=com.jjewuz.justweather)
