@@ -34,4 +34,6 @@
     <string name="usenotify">Use notifications</string>
     <string name="openSource">GitHub</string>
     <string name="notu">Notifications</string>
+    <string name="use_f">Use Fahrenheit</string>
+    <string name="measureWarn">Changes will affect soon...</string>
 </resources>

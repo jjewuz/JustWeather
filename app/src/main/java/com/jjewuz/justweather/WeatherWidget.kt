@@ -46,11 +46,11 @@ internal fun updateAppWidget(
     val views = RemoteViews(context.packageName, R.layout.weather_widget)
 
     val sharedPreferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE)
-    val widgetText = sharedPreferences.getInt("temperature", 0)
+    val widgetText = sharedPreferences.getString("MainTemp", "0")
 
 
 
-    views.setTextViewText(R.id.appwidget_text, "${widgetText.toString()} °С")
+    views.setTextViewText(R.id.appwidget_text, "$widgetText")
 
     val intent = Intent(context, MainActivity::class.java)
     val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)

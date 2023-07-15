@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.materialswitch.MaterialSwitch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,6 +22,8 @@ import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import com.google.android.material.snackbar.Snackbar
+
 
 
 class Settings : Fragment() {
@@ -29,6 +32,9 @@ class Settings : Fragment() {
     private lateinit var cityListView: ListView
     private lateinit var notifSett: MaterialCardView
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var measureSwitch: MaterialSwitch
+
+    private lateinit var measurment: String
 
     private var cityId = 5391959
     private val apiKey = BuildConfig.API_KEY
@@ -44,8 +50,13 @@ class Settings : Fragment() {
         cityEditText = v.findViewById(R.id.city_edittext)
         cityListView = v.findViewById(R.id.city_listview)
         notifSett = v.findViewById(R.id.card3)
+        measureSwitch = v.findViewById(R.id.use_f)
 
         sharedPreferences = requireActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE)
+
+        measurment = sharedPreferences.getString("measure", "metric").toString()
+
+        measureSwitch.isChecked = measurment != "metric"
 
         cityEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
@@ -75,6 +86,23 @@ class Settings : Fragment() {
             (activity as MainActivity?)!!.getWeather()
             cityEditText.text.clear()
             searchCities("хуйня")
+        }
+
+        measureSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+                with (sharedPreferences.edit()) {
+                    putString("measure", "imperial")
+                    apply()
+                }
+            }else{
+                with (sharedPreferences.edit()) {
+                    putString("measure", "metric")
+                    apply()
+                }
+
+            }
+            Snackbar.make(v, resources.getString(R.string.measureWarn), Snackbar.LENGTH_SHORT).show()
+
         }
 
         return v

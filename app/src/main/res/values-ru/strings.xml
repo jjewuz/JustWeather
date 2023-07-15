@@ -35,4 +35,6 @@
     <string name="usenotify">Уведомления</string>
     <string name="openSource">Исходный код</string>
     <string name="notu">Уведомления</string>
+    <string name="use_f">Использовать Фаренгейт</string>
+    <string name="measureWarn">Измненения скоро применятся...</string>
 </resources>

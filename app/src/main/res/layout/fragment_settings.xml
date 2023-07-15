@@ -35,7 +35,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textField"
                 android:layout_width="match_parent"
-                android:padding="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 app:startIconDrawable="@drawable/search"
                 app:startIconContentDescription="Search icon"
                 android:layout_height="wrap_content"
@@ -80,6 +81,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_gravity="center"
                 android:textSize="20sp"
+                android:textColor="?colorOnPrimaryContainer"
                 android:layout_height="wrap_content">
 
             </TextView>
@@ -91,6 +93,33 @@
                 android:src="@drawable/arrow_right"
                 app:tint="?colorPrimary"
                 android:contentDescription="right arrow" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:layout_gravity="center_vertical"
+            style="?attr/materialCardViewFilledStyle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:layout_width="match_parent"
+                    android:id="@+id/use_f"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/use_f"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 

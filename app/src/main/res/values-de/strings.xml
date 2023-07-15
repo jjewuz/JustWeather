@@ -35,4 +35,6 @@
     <string name="usenotify">Benachrichtigungen</string>
     <string name="openSource">Quelle</string>
     <string name="notu">Benachrichtigungen</string>
+    <string name="use_f">Verwenden Sie Fahrenheit</string>
+    <string name="measureWarn">Änderungen werden sich bald auswirken...</string>
 </resources>

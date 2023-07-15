@@ -53,6 +53,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var maxTxt: String
     private lateinit var nowTxt: String
 
+    private lateinit var measurment: String
+    private lateinit var measureTxt: String
+
     private lateinit var sharedPreferences: SharedPreferences
 
     private val client = OkHttpClient()
@@ -78,6 +81,13 @@ class MainActivity : AppCompatActivity() {
         pushWidget(this@MainActivity, "-0C")
 
         sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE)
+
+        measurment = sharedPreferences.getString("measure", "metric").toString()
+        if (measurment == "metric"){
+            measureTxt = "°С"
+        } else {
+            measureTxt = "°F"
+        }
 
         updatedLast = resources.getString(R.string.updated_last)
         feel = resources.getString(R.string.feels)
@@ -147,7 +157,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getUrl(): String{
         val lang = Locale.getDefault().language
-        val url = "https://api.openweathermap.org/data/2.5/weather?id=${loadSelectedCity()}&appid=$apiKey&lang=$lang&units=metric"
+        val url = "https://api.openweathermap.org/data/2.5/weather?id=${loadSelectedCity()}&appid=$apiKey&lang=$lang&units=$measurment"
 
         return url
     }
@@ -180,9 +190,9 @@ class MainActivity : AppCompatActivity() {
                 val updatedAt: String = SimpleDateFormat("h:mm a", Locale.ENGLISH).format(Date(updatedOn.toLong() * 1000))
 
                 withContext(Dispatchers.Main) {
-                    editor.putString("MainTemp", "${temperature.toFloat().toInt()}°С")
-                    editor.putString("FeelsLikeTxt",  "${feel} ${feelslike.toFloat().toInt()}°С")
-                    editor.putString("MinMaxTxt", "$minTxt ${min.toFloat().toInt()}°С\n$maxTxt ${max.toFloat().toInt()}°С")
+                    editor.putString("MainTemp", "${temperature.toFloat().toInt()} $measureTxt")
+                    editor.putString("FeelsLikeTxt",  "${feel} \n ${feelslike.toFloat().toInt()}$measureTxt")
+                    editor.putString("MinMaxTxt", "$minTxt ${min.toFloat().toInt()}$measureTxt\n$maxTxt ${max.toFloat().toInt()}$measureTxt")
                     editor.putString("CityTxt", cityName)
                     editor.putString("PressureTxt", "${pressureTxt} $pressure hPA")
                     editor.putString("WindTxt", "${wind_speed} $windspeed m/s")
