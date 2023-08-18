@@ -9,8 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.getSystemService
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.Dispatchers
@@ -27,7 +25,6 @@ import java.util.Locale
 class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
     private val client = OkHttpClient()
-    private lateinit var sharedPreferences: SharedPreferences
     
     private lateinit var currWeather: String
     private lateinit var nowTxt: String
@@ -41,6 +38,11 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
     private lateinit var wind_speed: String
     private lateinit var minTxt: String
     private lateinit var maxTxt: String
+
+    private lateinit var measurment: String
+    private lateinit var measureTxt: String
+
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun doWork(): Result {
         return try {
@@ -56,6 +58,16 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
             wind_speed = applicationContext.resources.getString((R.string.wind_speed))
             minTxt = applicationContext.resources.getString(R.string.min)
             maxTxt = applicationContext.resources.getString(R.string.max)
+
+
+            sharedPreferences = applicationContext.getSharedPreferences("prefs", Context.MODE_PRIVATE)
+
+            measurment = sharedPreferences.getString("measure", "metric").toString()
+            if (measurment == "metric"){
+                measureTxt = "°С"
+            } else {
+                measureTxt = "°F"
+            }
 
             val url = inputData.getString(URL)
             if (url != null) {
@@ -98,12 +110,16 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
                 val weather = weatherArray.getJSONObject(0)
                 val description = weather.getString("description")
                 val updatedOn = jsonObject.getString("dt")
-                val updatedAt: String = SimpleDateFormat("h:mm a", Locale.ENGLISH).format(Date(updatedOn.toLong() * 1000))
+                val updatedAt: String = if (measurment == "metric"){
+                    SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date(updatedOn.toLong() * 1000))
+                } else{
+                    SimpleDateFormat("hh:mm a", Locale.getDefault()).format(Date(updatedOn.toLong() * 1000))
+                }
 
                 withContext(Dispatchers.Main) {
-                    editor.putString("MainTemp", "${temperature.toFloat().toInt()}°С")
-                    editor.putString("FeelsLikeTxt",  "$feels ${feelslike.toFloat().toInt()}°С")
-                    editor.putString("MinMaxTxt", "$minTxt ${min.toFloat().toInt()}°С\n$maxTxt ${max.toFloat().toInt()}°С")
+                    editor.putString("MainTemp", "${temperature.toFloat().toInt()} $measureTxt")
+                    editor.putString("FeelsLikeTxt",  "$feels ${feelslike.toFloat().toInt()} $measureTxt")
+                    editor.putString("MinMaxTxt", "$minTxt ${min.toFloat().toInt()}°С\n$maxTxt ${max.toFloat().toInt()} $measureTxt")
                     editor.putString("CityTxt", cityName)
                     editor.putString("PressureTxt", "${pressureTxt} $pressure hPA")
                     editor.putString("WindTxt", "${wind_speed} $windspeed m/s")
@@ -114,8 +130,8 @@ class WeatherUpdater (context: Context, workerParams: WorkerParameters) : Worker
                     editor.apply()
                 }
 
-                val title = "$nowTxt ${temperature.toFloat().toInt()}°С"
-                val message = "$feels ${feelslike.toFloat().toInt()}°С"
+                val title = "$nowTxt ${temperature.toFloat().toInt()} $measureTxt"
+                val message = "$feels ${feelslike.toFloat().toInt()} $measureTxt"
 
                 pushWidget()
 

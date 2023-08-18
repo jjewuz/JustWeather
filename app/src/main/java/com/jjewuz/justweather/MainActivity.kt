@@ -40,7 +40,6 @@ import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    private var cityId = 5391959
     private val apiKey = BuildConfig.API_KEY
 
     private lateinit var updatedLast: String
@@ -187,7 +186,12 @@ class MainActivity : AppCompatActivity() {
                 val weather = weatherArray.getJSONObject(0)
                 val description = weather.getString("description")
                 val updatedOn = jsonObject.getString("dt")
-                val updatedAt: String = SimpleDateFormat("h:mm a", Locale.ENGLISH).format(Date(updatedOn.toLong() * 1000))
+                val updatedAt: String = if (measurment == "metric"){
+                    SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date(updatedOn.toLong() * 1000))
+                } else{
+                    SimpleDateFormat("hh:mm a", Locale.getDefault()).format(Date(updatedOn.toLong() * 1000))
+                }
+
 
                 withContext(Dispatchers.Main) {
                     editor.putString("MainTemp", "${temperature.toFloat().toInt()} $measureTxt")

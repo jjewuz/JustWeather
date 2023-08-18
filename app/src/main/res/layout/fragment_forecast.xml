@@ -30,6 +30,7 @@
 
 
                 <LinearLayout
+                    android:layout_margin="4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
@@ -46,9 +47,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginStart="4dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="4dp"
-                            android:layout_marginBottom="4dp"
+                            android:layout_marginEnd="8dp"
                             android:clickable="true">
 
                             <LinearLayout
@@ -81,9 +80,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginStart="4dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="4dp"
-                            android:layout_marginBottom="4dp"
+                            android:layout_marginEnd="8dp"
                             android:clickable="true">
 
                             <LinearLayout
@@ -121,7 +118,7 @@
                     style="?attr/materialCardViewFilledStyle"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_margin="4dp"
+                    android:layout_margin="8dp"
                     android:padding="6dp"
                     android:clickable="true">
 
@@ -140,10 +137,7 @@
                     style="?attr/materialCardViewFilledStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_margin="8dp"
                     android:clickable="true">
 
 

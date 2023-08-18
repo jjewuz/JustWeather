@@ -81,7 +81,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:textColor="?colorOnPrimaryContainer"
                 android:layout_height="wrap_content">
 
             </TextView>
