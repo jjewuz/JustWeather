@@ -36,4 +36,8 @@
     <string name="notu">Notifications</string>
     <string name="use_f">Use Fahrenheit</string>
     <string name="measureWarn">Changes will affect soon...</string>
+    <string name="forecast">Forecast</string>
+    <string name="current">Current</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

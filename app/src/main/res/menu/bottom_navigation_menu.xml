@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/forecast"
+        android:id="@+id/current"
         android:enabled="true"
         android:icon="@drawable/weather"
-        android:title="@string/Weather"/>
+        android:title="@string/current"/>
+    <item
+        android:id="@+id/forecast"
+        android:enabled="true"
+        android:icon="@drawable/forecast"
+        android:title="@string/forecast"/>
     <item
         android:id="@+id/city"
         android:enabled="true"

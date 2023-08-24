@@ -37,4 +37,6 @@
     <string name="notu">Уведомления</string>
     <string name="use_f">Использовать Фаренгейт</string>
     <string name="measureWarn">Измненения скоро применятся...</string>
+    <string name="forecast">Прогноз</string>
+    <string name="current">Сейчас</string>
 </resources>

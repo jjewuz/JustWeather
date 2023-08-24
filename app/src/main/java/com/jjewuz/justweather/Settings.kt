@@ -37,6 +37,8 @@ class Settings : Fragment() {
     private lateinit var measurment: String
 
     private var cityId = 5391959
+    private var cityLat = "0.0"
+    private var cityLon = "0.0"
     private val apiKey = BuildConfig.API_KEY
 
     private val client = OkHttpClient()
@@ -80,6 +82,8 @@ class Settings : Fragment() {
         cityListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val selectedCity = parent.getItemAtPosition(position) as City
             cityId = selectedCity.id
+            cityLat = selectedCity.lat
+            cityLon = selectedCity.lon
             saveSelectedCity(cityId)
             cityEditText.setText(selectedCity.name)
             cityListView.visibility = View.GONE
@@ -111,6 +115,8 @@ class Settings : Fragment() {
     fun saveSelectedCity(cityId: Int) {
         val editor = sharedPreferences.edit()
         editor.putInt("selectedCityId", cityId)
+        editor.putString("citylat", cityLat)
+        editor.putString("citylon", cityLon)
         editor.apply()
     }
 
@@ -123,7 +129,7 @@ class Settings : Fragment() {
     }
 
 
-    data class City(val id: Int, val name: String, val country: String)
+    data class City(val id: Int, val name: String, val lat: String, val lon: String, val country: String)
 
     class CityAdapter(context: Context, cities: List<City>) : ArrayAdapter<City>(context, 0, cities) {
 
@@ -158,6 +164,8 @@ class Settings : Fragment() {
                         val city = City(
                             cityJson.getInt("id"),
                             cityJson.getString("name"),
+                            cityJson.getJSONObject("coord").getString("lat"),
+                            cityJson.getJSONObject("coord").getString("lon"),
                             cityJson.getJSONObject("sys").getString("country")
                         )
                         cities.add(city)

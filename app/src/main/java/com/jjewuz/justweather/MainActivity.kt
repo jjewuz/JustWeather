@@ -116,7 +116,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavView?.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.forecast -> replaceFragment(Forecast())
+                R.id.current -> replaceFragment(Forecast())
+                R.id.forecast -> replaceFragment(FutureWeather())
                 R.id.city -> replaceFragment(Settings())
                 R.id.information -> replaceFragment(Info())
                 else ->{
@@ -128,7 +129,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigationRail?.setOnItemSelectedListener {  menuItem ->
             when (menuItem.itemId) {
-                R.id.forecast -> replaceFragment(Forecast())
+                R.id.current -> replaceFragment(Forecast())
+                R.id.forecast -> replaceFragment(FutureWeather())
                 R.id.city -> replaceFragment(Settings())
                 R.id.information -> replaceFragment(Info())
                 else ->{
@@ -140,12 +142,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun saveSelectedCity(cityId: Int) {
-        val editor = sharedPreferences.edit()
-        editor.putInt("selectedCityId", cityId)
-        editor.apply()
-    }
-
     private fun loadSelectedCity(): Int {
         val cityId = sharedPreferences.getInt("selectedCityId", 0)
         if (cityId == 0) {
@@ -154,7 +150,7 @@ class MainActivity : AppCompatActivity() {
         return cityId
     }
 
-    private fun getUrl(): String{
+   fun getUrl(): String{
         val lang = Locale.getDefault().language
         val url = "https://api.openweathermap.org/data/2.5/weather?id=${loadSelectedCity()}&appid=$apiKey&lang=$lang&units=$measurment"
 
