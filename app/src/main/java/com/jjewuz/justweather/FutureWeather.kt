@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,6 +30,7 @@ import java.util.Locale
 class FutureWeather : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var weatherAdapter: WeatherAdapter
+    private lateinit var loading: ProgressBar
 
     private val client = OkHttpClient()
     private val apiKey = BuildConfig.API_KEY
@@ -43,6 +46,7 @@ class FutureWeather : Fragment() {
 
         recyclerView = rootView.findViewById(R.id.recyclerView)
         weatherAdapter = WeatherAdapter()
+        loading = rootView.findViewById(R.id.loading)
 
         sharedPreferences = requireActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE)
 
@@ -52,6 +56,20 @@ class FutureWeather : Fragment() {
         } else {
             "°F"
         }
+
+        weatherAdapter.registerAdapterDataObserver(object: AdapterDataObserver(){
+            override fun onChanged() {
+                val count = weatherAdapter.itemCount
+                if (count == 0){
+                    loading.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                }
+                else {
+                    loading.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
+                }
+            }
+        })
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
@@ -135,7 +153,7 @@ class FutureWeather : Fragment() {
 
     fun getUrl(): String{
         val lang = Locale.getDefault().language
-        val url = "https://api.openweathermap.org/data/2.5/forecast?lat=${getLat()}&lon=${getLon()}&appid=$apiKey&lang=$lang&units=$measurment&cnt=15"
+        val url = "https://api.openweathermap.org/data/2.5/forecast?lat=${getLat()}&lon=${getLon()}&appid=$apiKey&lang=$lang&units=$measurment&cnt=18"
         return url
     }
 }

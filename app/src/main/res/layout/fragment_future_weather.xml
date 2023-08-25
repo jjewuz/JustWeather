@@ -13,6 +13,13 @@
         android:layout_height="match_parent">
 
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/loading"
+            android:layout_height="wrap_content"/>
+
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
@@ -31,7 +38,7 @@
                 android:paddingTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:itemCount="5"
+                tools:itemCount="0"
                 tools:listitem="@layout/item_weather"
                 android:paddingBottom="25dp" />
 

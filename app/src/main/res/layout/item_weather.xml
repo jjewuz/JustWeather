@@ -48,7 +48,8 @@
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/settings" />
+                android:src="@drawable/cloud"
+                app:tint="?android:textColorPrimary" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
