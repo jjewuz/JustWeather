@@ -18,9 +18,11 @@
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/appwidget_text"
             android:gravity="center"
-            android:text="0 C"
+            android:text="@string/appwidget_text"
+            android:singleLine="true"
+            android:ellipsize="end"
             android:textColor="?android:colorPrimary"
-            android:textSize="50sp"
+            android:textSize="42sp"
             android:textStyle="bold" />
 
 
