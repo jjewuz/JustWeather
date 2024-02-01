@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.internal.toImmutableList
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -76,6 +77,7 @@ class FutureWeather : Fragment() {
             adapter = weatherAdapter
         }
 
+
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
             val weatherDataList = mutableListOf<WeatherData>()
             val request = Request.Builder().url(getUrl()).build()
@@ -126,7 +128,6 @@ class FutureWeather : Fragment() {
                         } else {
                             image = R.drawable.buttonc
                         }
-
                         val weather = WeatherData(data, description, temp.toString() + measureTxt, image)
                         weatherDataList.add(weather)
                     }
@@ -142,6 +143,7 @@ class FutureWeather : Fragment() {
 
         return rootView
     }
+
 
     private fun getLat(): String? {
         return sharedPreferences.getString("citylat", "0.0")
