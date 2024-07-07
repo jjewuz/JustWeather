@@ -15,18 +15,26 @@
                 android:orientation="vertical"
                 android:padding="5dp">
 
-
-                <TextView
-                    android:id="@+id/temperature_textview"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/load"
-                    android:gravity="center"
-                    android:textColor="?colorPrimary"
-                    android:textSize="75sp"
-                    android:paddingBottom="20dp"
-                    android:paddingTop="20dp"
-                    android:textStyle="bold" />
+                    android:layout_margin="6dp"
+                    style="@style/Widget.Material3.CardView.Filled"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/temperature_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/load"
+                        android:gravity="center"
+                        android:textColor="?colorPrimary"
+                        android:textSize="75sp"
+                        android:paddingBottom="20dp"
+                        android:paddingTop="20dp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.card.MaterialCardView>
 
 
                 <LinearLayout
@@ -132,58 +140,45 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/otherinfocard"
-                    style="?attr/materialCardViewFilledStyle"
+                <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:clickable="true">
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"/>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:orientation="vertical"
-                        android:padding="6dp"
+                        android:padding="14dp"
                         android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/otherinfotxt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/otherinfo"
-                            android:textStyle="bold"
-                            android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/pressure_textview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/pressure"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/wind_textview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/wind_speed"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                         android:id="@+id/updated_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/updated_last"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="italic" />
 
 
                     </LinearLayout>
 
 
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
+                </LinearLayout>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

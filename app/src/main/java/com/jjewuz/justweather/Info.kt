@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
@@ -21,7 +22,7 @@ class Info : Fragment() {
     private lateinit var ratebtn: Button
     private lateinit var  tgbtn: ImageButton
     private lateinit var  vkbtn: ImageButton
-    private lateinit var  dsbtn: ImageButton
+    private lateinit var ghprofile: LinearLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,11 +40,13 @@ class Info : Fragment() {
         ratebtn = v.findViewById(R.id.rateweather)
         tgbtn = v.findViewById(R.id.tgbtn)
         vkbtn = v.findViewById(R.id.vkbtn)
-        dsbtn = v.findViewById(R.id.dsbtn)
+        ghprofile = v.findViewById(R.id.github_profile)
 
         ghbtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jjewuz/JustWeather"))
             startActivity(i)}
-        sitebtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://jjewuz.github.io/"))
+        ghprofile.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jjewuz"))
+            startActivity(i)}
+        sitebtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://jjewuz.ru/"))
             startActivity(i)}
         ratebtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.jjewuz.justweather"))
             startActivity(i)}
@@ -51,8 +54,7 @@ class Info : Fragment() {
             startActivity(i)}
         vkbtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/jjewuzhub"))
             startActivity(i)}
-        dsbtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/jNHNBdYuAR"))
-            startActivity(i)}
+
 
 
         return v

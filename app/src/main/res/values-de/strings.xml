@@ -37,4 +37,7 @@
     <string name="notu">Benachrichtigungen</string>
     <string name="use_f">Verwenden Sie Fahrenheit</string>
     <string name="measureWarn">Änderungen werden sich bald auswirken...</string>
+    <string name="forecast">Vorhersage</string>
+    <string name="current">Jetzt</string>
+    <string name="github_profile">Github profile</string>
 </resources>

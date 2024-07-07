@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingTop="25dp"
     tools:context=".Info">
 
@@ -84,93 +85,107 @@
 
             <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card2"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                android:clickable="true"
-                style="?attr/materialCardViewFilledStyle"
-                android:focusable="true">
-
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
                     android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:padding="15dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center"
-                        android:text="@string/dev"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:backgroundTint="?colorPrimary"
-                        android:gravity="center"
-                        android:text="@string/socialtxt"
-                        android:textSize="20sp" />
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    style="?attr/materialCardViewFilledStyle"
+                    android:focusable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center">
+                        android:padding="12dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                        <ImageButton
-                            android:id="@+id/tgbtn"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:layout_marginEnd="15dp"
-                            android:background="@drawable/buttonc"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/tg" />
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:text="@string/dev"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                        <ImageButton
-                            android:id="@+id/vkbtn"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:layout_marginEnd="15dp"
-                            android:background="@drawable/buttonc"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/vk" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:id="@+id/github_profile"
+                            android:layout_height="wrap_content">
 
-                        <ImageButton
-                            android:id="@+id/dsbtn"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/buttonc"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/discord" />
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:scaleType="fitXY"
+                                android:padding="5dp"
+                                android:src="@drawable/github" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:text="@string/github_profile"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:backgroundTint="?colorPrimary"
+                            android:gravity="center"
+                            android:text="@string/socialtxt"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:gravity="center">
+
+                            <ImageButton
+                                android:id="@+id/tgbtn"
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/buttonc"
+                                android:scaleType="fitXY"
+                                app:srcCompat="@drawable/tg"
+                                app:tint="?colorSurface" />
+
+                            <ImageButton
+                                android:id="@+id/vkbtn"
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/buttonc"
+                                android:scaleType="fitXY"
+                                app:tint="?colorSurface"
+                                app:srcCompat="@drawable/vk" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/version"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="1.0.0 (1)"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
-
-
-                    <TextView
-                        android:id="@+id/version"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text="1.0.0 (1)"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
+                </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
         </LinearLayout>
 

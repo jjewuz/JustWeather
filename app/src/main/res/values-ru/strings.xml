@@ -39,4 +39,5 @@
     <string name="measureWarn">Измненения скоро применятся...</string>
     <string name="forecast">Прогноз</string>
     <string name="current">Сейчас</string>
+    <string name="github_profile">Профиль на Github</string>
 </resources>

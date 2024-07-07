@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Info">
 
     <androidx.core.widget.NestedScrollView
@@ -70,8 +71,9 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card2"
+                android:id="@+id/card3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -81,20 +83,41 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:padding="15dp"
+                    android:padding="12dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView2"
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="@string/dev"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center"
-                        android:text="@string/dev"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:id="@+id/github_profile"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:scaleType="fitXY"
+                            android:padding="5dp"
+                            android:src="@drawable/github" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="@string/github_profile"/>
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/textView5"
@@ -109,6 +132,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="5dp"
                         android:gravity="center">
 
                         <ImageButton
@@ -118,7 +142,8 @@
                             android:layout_marginEnd="15dp"
                             android:background="@drawable/buttonc"
                             android:scaleType="fitXY"
-                            android:src="@drawable/tg" />
+                            app:srcCompat="@drawable/tg"
+                            app:tint="?colorSurface" />
 
                         <ImageButton
                             android:id="@+id/vkbtn"
@@ -127,19 +152,10 @@
                             android:layout_marginEnd="15dp"
                             android:background="@drawable/buttonc"
                             android:scaleType="fitXY"
-                            android:src="@drawable/vk" />
-
-                        <ImageButton
-                            android:id="@+id/dsbtn"
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:background="@drawable/buttonc"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/discord" />
+                            app:tint="?colorSurface"
+                            app:srcCompat="@drawable/vk" />
 
                     </LinearLayout>
-
-
 
                     <TextView
                         android:id="@+id/version"
