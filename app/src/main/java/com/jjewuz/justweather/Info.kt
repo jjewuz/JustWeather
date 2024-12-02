@@ -46,7 +46,7 @@ class Info : Fragment() {
             startActivity(i)}
         ghprofile.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jjewuz"))
             startActivity(i)}
-        sitebtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://jjewuz.ru/"))
+        sitebtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://jjewuz.com/"))
             startActivity(i)}
         ratebtn.setOnClickListener() {val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.jjewuz.justweather"))
             startActivity(i)}

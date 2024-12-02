@@ -149,7 +149,6 @@
                             android:id="@+id/vkbtn"
                             android:layout_width="65dp"
                             android:layout_height="65dp"
-                            android:layout_marginEnd="15dp"
                             android:background="@drawable/buttonc"
                             android:scaleType="fitXY"
                             app:tint="?colorSurface"
